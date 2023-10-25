@@ -19,9 +19,8 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
     // Update is called once per frame
-    void Update() {
-
-        Debug.Log("Update method is being called.");
+    void Update()
+    {
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -46,8 +45,6 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
-
-        Debug.Log("Is Grounded: " + isGrounded);
-        Debug.Log("Velocity Y: " + velocity.y);
+        
     }
 }
