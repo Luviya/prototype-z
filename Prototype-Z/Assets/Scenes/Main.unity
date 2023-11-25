@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 3
-  movementSpeed: 5
+  movementSpeed: 20
   mass: 1
   jumpSpeed: 5
   cameraTransform: {fileID: 1372243738}
@@ -225,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 573696014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 593.14, y: 101.1, z: 141.19}
+  m_LocalPosition: {x: 510, y: 101.1, z: 402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
