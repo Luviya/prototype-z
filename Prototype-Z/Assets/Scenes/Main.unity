@@ -952,6 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8042c00d981524f4dbdacbfb5a8a5f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 573696017}
   health: 100
 --- !u!1001 &1105405973
 PrefabInstance:
