@@ -9,11 +9,15 @@ public class SkeletonAI : MonoBehaviour
     public Transform player;
     public float attackRange = 2.0f; // The distance within which the skeleton will attack.
     public float walkSpeed = 1.5f; // The walking speed of the skeleton.
-    public float health = 100.0f; // Health of the skeleton.
+    public float maxHealth = 100f;
+    private float currentHealth;
+    public HealthBar healthBar; // Reference to the HealthBar script/component.
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
@@ -59,15 +63,15 @@ public class SkeletonAI : MonoBehaviour
     {
         if(isDead) return;
 
-        health -= damage;
-        if (health <= 0)
+        if(currentHealth <= 0) return; // Check to prevent negative health or repeated death.
+
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+        animator.SetTrigger("getHit"); // Trigger the get hit animation.
+
+        if (currentHealth <= 0)
         {
             Die();
-        }
-        else
-        {
-            // Trigger the get hit animation.
-            animator.SetTrigger("getHit");
         }
     }
 
