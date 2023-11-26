@@ -21,21 +21,22 @@ public class PriestController : MonoBehaviour
         if (!isAlive) return;
 
         // Example conditions for different actions
-        bool shouldWalk = false; // Determine if the Priest should be walking
-        bool performAttack1 = false; // Determine if the Priest should perform Attack 1
-        bool performAttack2 = false; // Determine if the Priest should perform Attack 2
+        bool shouldWalk = false;
+        bool performAttack1 = false;
+        bool performAttack2 = false;
 
         // Set Animator parameters based on the conditions
         animator.SetBool("isWalking", shouldWalk);
         if (performAttack1)
         {
             animator.SetTrigger("attack1");
+            // TODO: Add code to deal damage to the player.
         }
         if (performAttack2)
         {
             animator.SetTrigger("attack2");
+            // TODO: Add code to deal damage to the player.
         }
-        // Other conditions and Animator parameter settings would go here
     }
 
     public void TakeDamage(float damage)
@@ -55,8 +56,8 @@ public class PriestController : MonoBehaviour
     {
         animator.SetTrigger("die");
         isAlive = false;
-        // Handle the Priest's death here, such as disabling movement and interaction
+        // Destroy the object after 2 seconds
+        Destroy(gameObject, 2f);
+        // TODO: Add code to drop loot, play sound effects, etc.
     }
-
-    // Additional methods for initiating attacks or other behaviors can be added here
 }

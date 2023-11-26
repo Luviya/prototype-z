@@ -9,6 +9,7 @@ public class SkeletonAI : MonoBehaviour
     public Transform player;
     public float attackRange = 2.0f; // The distance within which the skeleton will attack.
     public float walkSpeed = 1.5f; // The walking speed of the skeleton.
+
     public float maxHealth = 100f;
     private float currentHealth;
     public HealthBar healthBar; // Reference to the HealthBar script/component.
@@ -55,7 +56,8 @@ public class SkeletonAI : MonoBehaviour
     {
         // Trigger the attack animation.
         animator.SetTrigger("attack");
-        // You would put your attack logic here (e.g., reduce player health).
+        // TODO: Add code to deal damage to the player.
+
     }
 
     // This method would be called when the skeleton is supposed to take damage.
@@ -80,8 +82,9 @@ public class SkeletonAI : MonoBehaviour
         // Trigger the death animation.
         animator.SetBool("isDead", true);
         isDead = true;
-        // Disable the skeleton's ability to attack or move.
-        // You can also add a delay here to destroy the object after the death animation plays.
+        // Destroy the skeleton after a few seconds.
+        Destroy(gameObject, 2f);
+        // TODO: Add code to drop loot, play sound effects, etc.
     }
 
     // If you want to implement reaction when hit but not dead.
